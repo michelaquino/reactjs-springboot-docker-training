@@ -3,7 +3,6 @@ package com.github.reactspringdocker.blogapi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -18,14 +17,13 @@ public class PostsRepository {
     }
 
     public List<Post> listAll() {
-        return Collections.unmodifiableList(posts);
+        return posts;
     }
 
     public Post save(Post newPost) {
-        synchronized (posts) {
-            Post newPostWithId = newPost.withId(posts.size() + 1);
-            posts.add(newPostWithId);
-            return newPostWithId;
-        }
+        int nextId = posts.size() + 1;
+        Post newPostWithId = newPost.withId(nextId);
+        posts.add(newPostWithId);
+        return newPostWithId;
     }
 }
