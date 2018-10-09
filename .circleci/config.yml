@@ -1,0 +1,6 @@
+version: 2
+jobs:
+ build:
+   machine: true
+   steps:
+     - run: docker build api/ -t local/blog-api:$CIRCLE_BUILD_NUM
