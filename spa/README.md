@@ -9,6 +9,6 @@ A simple code that consume a Blog Post API
 - Access http://localhost:9090
 
 # How to run on 'production'
-- `run-prod`
+- `make run-prod`
 
 This will create a prod build and run into a Docker container
