@@ -3,4 +3,4 @@ jobs:
  build:
    machine: true
    steps:
-     - run: docker build api/ -t local/blog-api:$CIRCLE_BUILD_NUM
+     - run: docker build -t local/blog-api:$CIRCLE_BUILD_NUM api/
