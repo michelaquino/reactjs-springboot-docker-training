@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 @SpringBootApplication
 public class BlogApiApplication {
@@ -15,8 +15,8 @@ public class BlogApiApplication {
 	}
 
 	@Bean
-	public Vector<Post> postList() {
-		return new Vector<>();
+	public List<Post> postList() {
+		return new ArrayList<>();
 	}
 
 }

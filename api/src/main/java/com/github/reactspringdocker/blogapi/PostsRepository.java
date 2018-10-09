@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Vector;
 
 @Repository
 public class PostsRepository {
 
-    private final Vector<Post> posts;
+    private final List<Post> posts;
 
     @Autowired
-    public PostsRepository(Vector<Post> posts) {
+    public PostsRepository(List<Post> posts) {
         this.posts = posts;
     }
 
