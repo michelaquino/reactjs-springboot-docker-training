@@ -1,6 +1,6 @@
-FROM gradle:jdk8 AS build-env
+FROM gradle:jdk8-alpine AS build-env
 COPY --chown=gradle:gradle . .
-RUN ["./gradlew", "build"]
+RUN ["gradle", "--no-daemon", "build"]
 
 FROM openjdk:8-alpine
 COPY entrypoint.sh entrypoint.sh
