@@ -3,4 +3,5 @@ jobs:
  build:
    machine: true
    steps:
-     - run: docker build -t local/blog-api:$CIRCLE_BUILD_NUM api/
+     - run: ls -la
+     - run: docker build -t local/blog-api:$CIRCLE_BUILD_NUM -f api/Dockerfile
