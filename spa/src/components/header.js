@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import { NavLink } from 'react-router-dom'
+import { Navbar, Nav} from 'react-bootstrap';
 
 class Header extends Component {
   render() {
     return (
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-        </header>
+        <Navbar bg="dark" variant="dark" >
+            <Navbar.Brand href="#home">Example React</Navbar.Brand>
+            <Nav className="mr-auto">
+                <NavLink to="/" className="nav-link" activeStyle="active" exact>Home</NavLink>
+            </Nav>
+        </Navbar>
     );
   }
 }

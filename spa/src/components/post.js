@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as postActions from '../actions/postActions';
 import PropTypes from 'prop-types';
+import { Form, Button, Alert } from 'react-bootstrap';
 
 class Post extends Component {
     constructor(props) {
@@ -50,20 +51,55 @@ class Post extends Component {
 
     render() {
         return (
-            <div>
-                <span> Título </span>
-                <br />
-                <input type="text" value={this.state.title} onChange={(e) => this.handleTitleChange(e)}/>
+            <Form>
+                <Form.Group controlId="postTitle">
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={this.state.title}
+                        onChange={(e) => this.handleTitleChange(e)}
+                    />
+                </Form.Group>
 
-                <br />
-                <span> Descrição </span>
-                <br />
-                <textarea rows="4" cols="50" value={this.state.description} onChange={(e) => this.handleDescriptionChange(e)}/ >
+                <Form.Group controlId="postDescription">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows="3"
+                        value={this.state.description}
+                        onChange={(e) => this.handleDescriptionChange(e)}
+                    />
+                </Form.Group>
+                <Button
+                    variant="primary"
+                    type="button"
+                    onClick={(e) => this.handleOnClickButton(e)}>
+                    Save
+                </Button>
 
-                <br />
-                <button onClick={(e) => this.handleOnClickButton(e)}> Salvar </button>
-                <span> {this.props.finishCreatePost === true && this.props.successOnSave === false ? "An error occurs when save the post" : ""} </span>
-            </div>
+                {
+                    this.props.finishCreatePost === true && this.props.successOnSave === false ?
+                        <Alert key="alertDanger" variant="danger">
+                            An error occurs when save the post
+                        </Alert>
+                        :
+                        null
+                }
+            </Form>
+            // <div>
+            //     <span> Título </span>
+            //     <br />
+            //     <input type="text" value={this.state.title} onChange={(e) => this.handleTitleChange(e)}/>
+
+            //     <br />
+            //     <span> Descrição </span>
+            //     <br />
+            //     <textarea rows="4" cols="50" value={this.state.description} onChange={(e) => this.handleDescriptionChange(e)}/ >
+
+            //     <br />
+            //     <button onClick={(e) => this.handleOnClickButton(e)}> Salvar </button>
+            //     <span> {this.props.finishCreatePost === true && this.props.successOnSave === false ? "An error occurs when save the post" : ""} </span>
+            // </div>
         );
     }
 }
