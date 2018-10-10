@@ -99,3 +99,32 @@ You can stop and remove all containers using:
 ```
 docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 ```
+
+## Testing the API
+
+The API exposes two endpoints, one for creating a new blog post and another
+one for retrieving a list of saved posts.
+
+- `POST /posts` to create a post
+- `GET /posts` to retrieve the list of posts
+
+Blog posts IDs are generated automatically, so you don't need to send it
+when creating a post.
+
+####  Creating a blog post
+
+Use curl, or postman if you want a nice UI, to submit a request with `"{\"title\": \"A post\", \"description\": \"A very nice post\"}`
+
+```
+curl -X POST http://localhost:8080/posts -H "Content-Type: application/json" -d "{\"title\": \"A post\", \"description\": \"A very nice post\"}"
+```
+
+### Listing all posts
+
+You can list all existing blog posts by hitting `/posts` with a GET using
+a browser or curl again:
+
+```
+curl -X GET http://localhost:8080/posts
+```
+
