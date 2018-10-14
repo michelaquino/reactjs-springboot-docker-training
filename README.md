@@ -3,12 +3,12 @@
 ## How to use it
 
 This repo is a reference for a workshop on using Java and Spring to build
-an API and React to build a SPA, running everything with docker.
+an API and React to build a SPA, running everything with Docker.
 
-The [api]('/api') folder contains a Springboot API that allows you to
+The [api](/api) folder contains a Springboot API that allows you to
 create and retrieve blog posts.
 
-The [spa]('/spa') folder contains a React SPA that consumes from the blog
+The [spa](/spa) folder contains a React SPA that consumes from the blog
 posts API.
 
 ### Running with docker
